@@ -1,4 +1,4 @@
-package com.tuempresa.historialmedico.modelo;
+package tarea2.historialmedico.modelo;
 
 import org.springframework.data.annotation.Id;
 import java.time.LocalDate;

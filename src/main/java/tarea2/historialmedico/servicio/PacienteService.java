@@ -1,8 +1,9 @@
-package com.tuempresa.historialmedico.servicio;
+package tarea2.historialmedico.servicio;
 
-import com.tuempresa.historialmedico.modelo.Paciente;
-import com.tuempresa.historialmedico.modelo.RegistroMedico;
-import com.tuempresa.historialmedico.repositorio.PacienteRepository;
+import tarea2.historialmedico.modelo.Paciente;
+import tarea2.historialmedico.modelo.RegistroMedico;
+import tarea2.historialmedico.repositorio.PacienteRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;

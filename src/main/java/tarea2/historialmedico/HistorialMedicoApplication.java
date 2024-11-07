@@ -1,4 +1,4 @@
-package com.tuempresa.historialmedico;
+package tarea2.historialmedico;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
