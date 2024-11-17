@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "f82a8d04-e955-4d48-a916-1ea145d82f0f",
+		"name": "API Pacientes",
+		"description": "Se probarán las operaciones get y post",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39682394"
+	},
+	"item": [
+		{
+			"name": "Agregar Paciente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ci\": \"12345678\",\r\n    \"nombre\": \"Martín\",\r\n    \"apellido\": \"Sosa\",\r\n    \"fechaNacimiento\": \"1996-12-15\",\r\n    \"sexo\": \"Masculino\",\r\n    \"historialMedico\": [\r\n        {\r\n            \"id\": \"registro01\",\r\n            \"fecha\": \"2024-11-16\",\r\n            \"tipo\": \"Consulta\",\r\n            \"diagnostico\": \"Gripe\",\r\n            \"medico\": \"Dr. Lopez\",\r\n            \"institucion\": \"Hospital de Clínicas\",\r\n            \"descripcion\": \"Consulta por tener síntomas de estado gripal\",\r\n            \"medicacion\": \"Paracetamol\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8080/api/pacientes",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pacientes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar Historial Médico",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/pacientes/12345678/historial",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pacientes",
+						"12345678",
+						"historial"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar Registro Médico",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"registro02\",\r\n    \"fecha\": \"2024-11-16\",\r\n    \"tipo\": \"Examen\",\r\n    \"diagnostico\": \"Anemia\",\r\n    \"medico\": \"Dra. Rodriguez\",\r\n    \"institucion\": \"Hospital Central\",\r\n    \"descripcion\": \"Examen de sangre\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/pacientes/12345678/registro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pacientes",
+						"12345678",
+						"registro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener Registros por Criterio",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/pacientes/buscar?tipo=Consulta&diagnostico=Gripe\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"pacientes",
+						"buscar"
+					],
+					"query": [
+						{
+							"key": "tipo",
+							"value": "Consulta"
+						},
+						{
+							"key": "diagnostico",
+							"value": "Gripe\n"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
