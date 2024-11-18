@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo_db
+    ports:
+      - "27017:27017"
+    networks:
+      - historial_medico_network
+    volumes:
+      - mongo_data:/data/db
+
+  flask-app:
+    build: .
+    container_name: historial_medico-flask-app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+    networks:
+      - historial_medico_network
+    environment:
+      - MONGO_URI=mongodb://mongo:27017  # Conexión a MongoDB (nombre del servicio como hostname)
+    volumes:
+      - .:/app
+
+networks:
+  historial_medico_network:
+    driver: bridge
+
+volumes:
+  mongo_data:
